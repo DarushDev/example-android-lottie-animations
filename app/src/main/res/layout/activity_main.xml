@@ -4,20 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/btn_main_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Resume Animations" />
+
+    <Button
+        android:id="@+id/btn_main_stop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pause Animations" />
 
     <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_anim_favourite"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
         app:lottie_autoPlay="true"
-        app:lottie_fileName="confetti.json"
+        app:lottie_fileName="favourite_icon.json"
         app:lottie_loop="true" />
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lottie_from_code"
+        android:id="@+id/lottie_anim_confetti"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center" />
