@@ -10,6 +10,8 @@ import static com.airbnb.lottie.LottieDrawable.INFINITE;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "MainActivity";
+
     private static final float PLAY_START = 0f;
     private static final float PLAY_END = 0.5f;
     private static final float PAUSE_START = 0.5f;
