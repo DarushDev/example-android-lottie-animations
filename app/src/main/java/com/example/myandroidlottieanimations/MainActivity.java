@@ -1,8 +1,8 @@
 package com.example.myandroidlottieanimations;
 
-import android.support.v7.app.AppCompatActivity;
+import android.animation.ValueAnimator;
 import android.os.Bundle;
-import android.view.View;
+import android.support.v7.app.AppCompatActivity;
 
 import com.airbnb.lottie.LottieAnimationView;
 
@@ -10,9 +10,14 @@ import static com.airbnb.lottie.LottieDrawable.INFINITE;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final float PLAY_START = 0f;
+    private static final float PLAY_END = 0.5f;
+    private static final float PAUSE_START = 0.5f;
+    private static final float PAUSE_END = 1f;
+
     LottieAnimationView lottieConfetti;
     LottieAnimationView lottieFavorite;
-
+    LottieAnimationView btnPlayPause;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,37 +25,37 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         lottieFavorite = findViewById(R.id.lottie_anim_favourite);
+        btnPlayPause = findViewById(R.id.btn_play_pause);
 
         lottieConfetti = findViewById(R.id.lottie_anim_confetti);
         lottieConfetti.setAnimation("confetti.json");
-        lottieConfetti.playAnimation();
         lottieConfetti.setRepeatCount(INFINITE);
 
-        findViewById(R.id.btn_main_stop).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (lottieConfetti.isAnimating()) {
-                    lottieConfetti.pauseAnimation();
-                }
+        btnPlayPause.setOnClickListener(view -> {
 
-                if (lottieFavorite.isAnimating()) {
-                    lottieFavorite.pauseAnimation();
-                }
+            if (lottieFavorite.isAnimating() && lottieConfetti.isAnimating()) {
+                lottieConfetti.pauseAnimation();
+                lottieFavorite.pauseAnimation();
+                changePauseToPlay();
+            } else {
+                lottieConfetti.resumeAnimation();
+                lottieFavorite.playAnimation();
+                changePlayToPause();
             }
+
         });
 
-        findViewById(R.id.btn_main_play).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!lottieConfetti.isAnimating()) {
-                    lottieConfetti.resumeAnimation();
-                }
+    }
 
-                if (!lottieFavorite.isAnimating()) {
-                    lottieFavorite.resumeAnimation();
-                }
-            }
-        });
+    private void changePlayToPause() {
+        ValueAnimator animator = ValueAnimator.ofFloat(PLAY_START, PLAY_END).setDuration(500);
+        animator.addUpdateListener(animation -> btnPlayPause.setProgress((float) animation.getAnimatedValue()));
+        animator.start();
+    }
 
+    private void changePauseToPlay() {
+        ValueAnimator animator = ValueAnimator.ofFloat(PAUSE_START, PAUSE_END).setDuration(500);
+        animator.addUpdateListener(animation -> btnPlayPause.setProgress((float) animation.getAnimatedValue()));
+        animator.start();
     }
 }

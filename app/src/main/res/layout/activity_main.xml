@@ -8,31 +8,31 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btn_main_play"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Resume Animations" />
-
-    <Button
-        android:id="@+id/btn_main_stop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pause Animations" />
-
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottie_anim_favourite"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
-        app:lottie_autoPlay="true"
+        app:lottie_autoPlay="false"
         app:lottie_fileName="favourite_icon.json"
         app:lottie_loop="true" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottie_anim_confetti"
         android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center" />
+        android:layout_height="100dp" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/btn_play_pause"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="50dp"
+        android:adjustViewBounds="true"
+        android:cropToPadding="true"
+        android:scaleType="centerInside"
+        app:lottie_cacheStrategy="strong"
+        app:lottie_colorFilter="@android:color/black"
+        app:lottie_fileName="Play-Pause.json"
+        app:lottie_scale="0.5" />
 
 </LinearLayout>
