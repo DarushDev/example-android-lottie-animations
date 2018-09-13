@@ -15,7 +15,8 @@
         android:layout_gravity="center"
         app:lottie_autoPlay="false"
         app:lottie_fileName="favourite_icon.json"
-        app:lottie_loop="true" />
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/favourite_icon" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottie_anim_confetti"
