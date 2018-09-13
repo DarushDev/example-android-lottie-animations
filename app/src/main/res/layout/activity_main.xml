@@ -35,4 +35,34 @@
         app:lottie_fileName="Play-Pause.json"
         app:lottie_scale="0.5" />
 
+    <RelativeLayout
+        android:id="@+id/layout_checkbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/listText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16sp"
+            android:layout_marginStart="16sp"
+            android:text="Example check box"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_checkbox"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            app:lottie_fileName="checked_done_.json" />
+
+    </RelativeLayout>
+
 </LinearLayout>

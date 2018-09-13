@@ -3,6 +3,7 @@ package com.example.myandroidlottieanimations;
 import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.RelativeLayout;
 
 import com.airbnb.lottie.LottieAnimationView;
 
@@ -17,9 +18,11 @@ public class MainActivity extends AppCompatActivity {
     private static final float PAUSE_START = 0.5f;
     private static final float PAUSE_END = 1f;
 
+    RelativeLayout layoutCheckbox;
     LottieAnimationView lottieConfetti;
     LottieAnimationView lottieFavorite;
     LottieAnimationView btnPlayPause;
+    LottieAnimationView lottieCheckbox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
 
         lottieFavorite = findViewById(R.id.lottie_anim_favourite);
         btnPlayPause = findViewById(R.id.btn_play_pause);
+        layoutCheckbox = findViewById(R.id.layout_checkbox);
+        lottieCheckbox = findViewById(R.id.lottie_checkbox);
 
         lottieConfetti = findViewById(R.id.lottie_anim_confetti);
         lottieConfetti.setAnimation("confetti.json");
@@ -47,6 +52,25 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+        layoutCheckbox.setOnClickListener(view -> {
+            startCheckboxAnimation();
+        });
+
+    }
+
+    private void startCheckboxAnimation() {
+
+        ValueAnimator animator = ValueAnimator.ofFloat(0f, 1f).setDuration(500);
+        animator.addUpdateListener(valueAnimator -> {
+            lottieCheckbox.setProgress((float) valueAnimator.getAnimatedValue());
+        });
+
+        if (lottieCheckbox.getProgress() == 0f) {
+            animator.start();
+        } else {
+            lottieCheckbox.setProgress(0f);
+        }
+
     }
 
     private void changePlayToPause() {
@@ -60,4 +84,5 @@ public class MainActivity extends AppCompatActivity {
         animator.addUpdateListener(animation -> btnPlayPause.setProgress((float) animation.getAnimatedValue()));
         animator.start();
     }
+
 }
