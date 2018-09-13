@@ -1,24 +1,25 @@
 apply plugin: 'com.android.application'
 
 ext {
-    minSdkVersion = 15
+    minSdkVersion = 16
     targetSdkVersion = 28
     compileSdkVersion = 28
 
     // App dependencies
     supportLibraryVersion = '28.0.0-rc02'
     constraintLayoutVersion = '1.1.0'
+    lottieVersion = '2.6.1'
     junitVersion = '4.12'
     runnerVersion = '1.0.2'
     espressoVersion = '3.0.2'
 }
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion project.compileSdkVersion
     defaultConfig {
         applicationId "com.example.myandroidlottieanimations"
-        minSdkVersion 15
-        targetSdkVersion 28
+        minSdkVersion project.minSdkVersion
+        targetSdkVersion project.targetSdkVersion
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -35,6 +36,9 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
     implementation "com.android.support.constraint:constraint-layout:$constraintLayoutVersion"
+
+    implementation "com.airbnb.android:lottie:$lottieVersion"
+
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "com.android.support.test:runner:$runnerVersion"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$espressoVersion"
