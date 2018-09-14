@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void startCheckboxAnimation() {
 
-        ValueAnimator animator = ValueAnimator.ofFloat(0f, 1f).setDuration(500);
+        ValueAnimator animator = ValueAnimator.ofFloat(0f, 1f).setDuration(750);
         animator.addUpdateListener(valueAnimator -> {
             lottieCheckbox.setProgress((float) valueAnimator.getAnimatedValue());
         });

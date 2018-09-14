@@ -49,8 +49,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="16sp"
             android:layout_marginStart="16sp"
-            android:text="Example check box"
-            android:textSize="18sp"
+            android:text="This is a CheckBox"
             android:textStyle="bold" />
 
         <com.airbnb.lottie.LottieAnimationView
